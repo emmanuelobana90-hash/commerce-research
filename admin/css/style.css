@@ -425,3 +425,16 @@ button:focus-visible {
     padding: 16px;
   }
 }
+
+/* Login page */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(100%, 460px);
+  margin: 0 auto;
+}
