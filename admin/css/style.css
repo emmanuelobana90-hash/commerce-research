@@ -1,0 +1,167 @@
+:root {
+  --bg: #F7F5F0;
+  --surface: #FFFFFF;
+  --text: #202124;
+  --muted: #687078;
+  --border: #D9D6CF;
+  --accent: #E86A33;
+  --accent-dark: #C95424;
+  --danger: #B42318;
+  --success: #287A52;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(100%, 460px);
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 35px rgba(32, 33, 36, 0.07);
+}
+
+.brand {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.auth-description {
+  margin: 16px 0 30px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 14px;
+  color: var(--text);
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(232, 106, 51, 0.12);
+}
+
+.button {
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.button--primary {
+  color: #FFFFFF;
+  background: var(--accent);
+}
+
+.button--primary:hover {
+  background: var(--accent-dark);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.message {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.message.is-error {
+  color: var(--danger);
+  background: #FEF3F2;
+  border: 1px solid #FECACA;
+}
+
+.message.is-success {
+  color: var(--success);
+  background: #ECFDF3;
+  border: 1px solid #ABEFC6;
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 16px;
+  }
+
+  .auth-card {
+    padding: 24px;
+  }
+}

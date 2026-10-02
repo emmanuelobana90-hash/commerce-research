@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#F7F5F0">
+  <meta
+    name="description"
+    content="Administration privée — Commerce Research.">
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>Commerce Research — Administration</title>
+</head>
+
+<body>
+
+  <main class="auth-page">
+
+    <section
+      class="auth-card"
+      aria-labelledby="auth-title">
+
+      <p class="brand">COMMERCE RESEARCH</p>
+
+      <h1 id="auth-title">
+        Administration
+      </h1>
+
+      <p class="auth-description">
+        Connectez-vous pour accéder aux données de recherche.
+      </p>
+
+      <form id="login-form" novalidate>
+
+        <div class="field">
+
+          <label
+            class="field__label"
+            for="email">
+            Adresse email
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            inputmode="email"
+            required>
+
+        </div>
+
+        <div class="field">
+
+          <label
+            class="field__label"
+            for="password">
+            Mot de passe
+          </label>
+
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required>
+
+        </div>
+
+        <p
+          id="login-message"
+          class="message"
+          role="alert"
+          aria-live="polite"
+          hidden>
+        </p>
+
+        <button
+          id="login-button"
+          class="button button--primary"
+          type="submit">
+
+          Se connecter
+          <span aria-hidden="true">→</span>
+
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="./js/admin.js"></script>
+
+</body>
+</html>
