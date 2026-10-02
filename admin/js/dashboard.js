@@ -219,7 +219,16 @@
       return "";
     }
 
-    var otherField = field + "_other";
+    var otherFields = {
+      activity_type: "activity_other",
+      role: "role_other",
+      current_tools: "current_tools_other",
+      difficulty_areas: "difficulty_other",
+      incident_types: "incident_other",
+      resolution_methods: "resolution_other"
+    };
+
+    var otherField = otherFields[field];
     var details = [];
 
     rows.forEach(function (row) {
