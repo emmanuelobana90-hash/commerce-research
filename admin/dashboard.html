@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1">
+
+  <meta
+    name="theme-color"
+    content="#F7F5F0">
+
+  <meta
+    name="description"
+    content="Dashboard privé de Commerce Research.">
+
+  <link
+    rel="manifest"
+    href="./manifest.webmanifest">
+
+  <link
+    rel="stylesheet"
+    href="./css/style.css">
+
+  <title>Commerce Research — Dashboard</title>
+</head>
+
+<body>
+
+  <div id="dashboard-app" class="dashboard-app">
+
+    <header class="dashboard-header">
+
+      <div class="dashboard-header__brand">
+
+        <p class="brand">COMMERCE RESEARCH</p>
+
+        <h1>Vue d'ensemble</h1>
+
+      </div>
+
+      <div class="dashboard-header__actions">
+
+        <span
+          id="admin-email"
+          class="admin-email">
+        </span>
+
+        <button
+          id="logout-button"
+          class="button button--secondary"
+          type="button">
+          Déconnexion
+        </button>
+
+      </div>
+
+    </header>
+
+    <main class="dashboard-main">
+
+      <section
+        id="loading-state"
+        class="state-card"
+        aria-live="polite">
+
+        <p>Chargement des données…</p>
+
+      </section>
+
+      <section
+        id="dashboard-content"
+        hidden>
+
+        <!-- Vue d'ensemble -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="overview-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">EN UN COUP D'ŒIL</p>
+
+              <h2 id="overview-title">
+                Activité de l'étude
+              </h2>
+            </div>
+
+            <span
+              id="last-updated"
+              class="section-meta">
+            </span>
+
+          </div>
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+
+              <span class="stat-card__label">
+                Réponses
+              </span>
+
+              <strong
+                id="stat-responses"
+                class="stat-card__value">
+                —
+              </strong>
+
+              <span class="stat-card__detail">
+                questionnaires terminés
+              </span>
+
+            </article>
+
+            <article class="stat-card">
+
+              <span class="stat-card__label">
+                Sessions
+              </span>
+
+              <strong
+                id="stat-sessions"
+                class="stat-card__value">
+                —
+              </strong>
+
+              <span class="stat-card__detail">
+                questionnaires démarrés
+              </span>
+
+            </article>
+
+            <article class="stat-card">
+
+              <span class="stat-card__label">
+                Abandons
+              </span>
+
+              <strong
+                id="stat-abandoned"
+                class="stat-card__value">
+                —
+              </strong>
+
+              <span class="stat-card__detail">
+                sessions non terminées
+              </span>
+
+            </article>
+
+            <article class="stat-card">
+
+              <span class="stat-card__label">
+                Complétion
+              </span>
+
+              <strong
+                id="stat-completion"
+                class="stat-card__value">
+                —
+              </strong>
+
+              <span class="stat-card__detail">
+                des sessions
+              </span>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- Profil des commerces -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="profile-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">PROFIL</p>
+
+              <h2 id="profile-title">
+                Qui avons-nous interrogé ?
+              </h2>
+            </div>
+
+          </div>
+
+          <div class="analysis-grid">
+
+            <article class="panel">
+
+              <h3>Activités</h3>
+
+              <div
+                id="activity-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Villes</h3>
+
+              <div
+                id="city-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Rôle</h3>
+
+              <div
+                id="role-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Taille de l'équipe</h3>
+
+              <div
+                id="team-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- Problèmes -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="problems-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">PROBLÈMES</p>
+
+              <h2 id="problems-title">
+                Ce qui revient le plus souvent
+              </h2>
+            </div>
+
+          </div>
+
+          <div class="analysis-grid">
+
+            <article class="panel panel--wide">
+
+              <h3>Difficultés principales</h3>
+
+              <div
+                id="difficulty-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Incident récent</h3>
+
+              <div
+                id="incident-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Récurrence</h3>
+
+              <div
+                id="recurrence-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- Résolution -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="resolution-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">RÉSOLUTION</p>
+
+              <h2 id="resolution-title">
+                Comment les commerçants réagissent
+              </h2>
+            </div>
+
+          </div>
+
+          <div class="analysis-grid">
+
+            <article class="panel">
+
+              <h3>Types d'incidents</h3>
+
+              <div
+                id="incident-type-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+            <article class="panel">
+
+              <h3>Méthodes de résolution</h3>
+
+              <div
+                id="resolution-list"
+                class="distribution-list">
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- Outils -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="tools-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">OUTILS</p>
+
+              <h2 id="tools-title">
+                Comment travaillent-ils aujourd'hui ?
+              </h2>
+            </div>
+
+          </div>
+
+          <article class="panel panel--wide">
+
+            <div
+              id="tools-list"
+              class="distribution-list">
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- Intérêt -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="interest-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">OPPORTUNITÉ</p>
+
+              <h2 id="interest-title">
+                Intérêt pour une solution
+              </h2>
+            </div>
+
+          </div>
+
+          <article class="panel panel--wide">
+
+            <div
+              id="interest-list"
+              class="distribution-list">
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- Sources -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="sources-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">ACQUISITION</p>
+
+              <h2 id="sources-title">
+                Comment les répondants nous ont trouvés
+              </h2>
+            </div>
+
+          </div>
+
+          <article class="panel panel--wide">
+
+            <div
+              id="source-list"
+              class="distribution-list">
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- Réponses récentes -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="responses-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">DONNÉES</p>
+
+              <h2 id="responses-title">
+                Réponses récentes
+              </h2>
+            </div>
+
+          </div>
+
+          <article class="panel panel--wide">
+
+            <div
+              id="recent-responses"
+              class="responses-list">
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- Contacts -->
+
+        <section
+          class="dashboard-section"
+          aria-labelledby="contacts-title">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">CONTACT</p>
+
+              <h2 id="contacts-title">
+                Contacts consentis
+              </h2>
+            </div>
+
+          </div>
+
+          <article class="panel panel--wide">
+
+            <div
+              id="contacts-list"
+              class="contacts-list">
+            </div>
+
+          </article>
+
+        </section>
+
+      </section>
+
+
+      <!-- Erreur -->
+
+      <section
+        id="error-state"
+        class="state-card state-card--error"
+        hidden
+        aria-live="assertive">
+
+        <h2>Impossible de charger le dashboard</h2>
+
+        <p id="error-message"></p>
+
+        <button
+          id="retry-button"
+          class="button button--primary"
+          type="button">
+          Réessayer
+        </button>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="./js/dashboard.js"></script>
+
+</body>
+</html>
