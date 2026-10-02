@@ -214,6 +214,27 @@
       });
   }
 
+  function findOtherDetail(field, key, rows) {
+    if (key !== "other") {
+      return "";
+    }
+
+    var otherField = field + "_other";
+    var details = [];
+
+    rows.forEach(function (row) {
+      if (row[otherField] !== null && row[otherField] !== undefined) {
+        var detail = String(row[otherField]).trim();
+
+        if (detail && details.indexOf(detail) === -1) {
+          details.push(detail);
+        }
+      }
+    });
+
+    return details.join(" • ");
+  }
+
   function distribution(field, rows) {
     var result = countValues(rows, field);
     var items = sortedCounts(result.counts);
@@ -226,6 +247,7 @@
 
     items.slice(0, 12).forEach(function (item) {
       var percent = Math.round((item.value / total) * 100);
+      var detail = findOtherDetail(field, item.key, rows);
 
       html +=
         '<div class="distribution-item">' +
@@ -237,6 +259,11 @@
               item.value + " (" + percent + "%)" +
             '</span>' +
           "</div>" +
+          (detail
+            ? '<div class="distribution-item__detail">↳ Précision : ' +
+                escapeText(detail) +
+              '</div>'
+            : "") +
           '<div class="distribution-item__track">' +
             '<div class="distribution-item__bar" style="width:' +
               Math.max(percent, 2) +
