@@ -438,3 +438,12 @@ button:focus-visible {
   width: min(100%, 460px);
   margin: 0 auto;
 }
+
+
+.distribution-item__detail {
+  margin-top: 6px;
+  padding-left: 4px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #465A65;
+}
