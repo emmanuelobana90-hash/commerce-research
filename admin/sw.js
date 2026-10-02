@@ -1,6 +1,6 @@
 "use strict";
 
-var CACHE_NAME = "commerce-research-admin-v1";
+var CACHE_NAME = "commerce-research-admin-v2";
 
 var APP_SHELL = [
   "./",
