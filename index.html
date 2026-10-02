@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F5F0">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="description" content="Commerce Research — une étude sur le quotidien des commerçants.">
+  <title>Commerce Research</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!--
+      INTRODUCTION
+      Cet écran sera contrôlé par survey.js.
+      Il sera visible avant le début du questionnaire.
+    -->
+    <section id="intro" class="intro" aria-labelledby="intro-title">
+
+      <div class="intro__content">
+
+        <p class="brand">COMMERCE RESEARCH</p>
+
+        <h1 id="intro-title">
+          Votre commerce mérite d'être entendu.
+        </h1>
+
+        <p class="intro__description">
+          Nous cherchons à mieux comprendre le quotidien des commerçants,
+          leurs difficultés et les situations auxquelles ils font face.
+        </p>
+
+        <div class="intro__meta">
+          <span>⏱ Quelques minutes</span>
+        </div>
+
+        <button id="start-button" class="button button--primary" type="button">
+          Commencer <span aria-hidden="true">→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- APPLICATION -->
+    <div id="survey-app" hidden>
+
+      <!-- État initial -->
+      <section id="loading" aria-live="polite">
+        <p>Préparation du questionnaire…</p>
+      </section>
+
+      <noscript>
+        <p>
+          Ce questionnaire a besoin de JavaScript pour fonctionner.
+          Merci de l'activer dans votre navigateur.
+        </p>
+      </noscript>
+
+
+      <main id="app-main">
+
+        <!-- PROGRESSION -->
+        <div id="progress" hidden>
+
+          <div class="progress__top">
+            <p id="progress-label"></p>
+          </div>
+
+          <progress
+            id="progress-bar"
+            value="0"
+            max="100"
+            aria-labelledby="progress-label">
+          </progress>
+
+        </div>
+
+
+        <!-- QUESTION -->
+        <form id="question-form" novalidate>
+
+          <div
+            id="question-container"
+            tabindex="-1">
+          </div>
+
+          <!-- MESSAGE -->
+          <p
+            id="message"
+            class="message"
+            role="status"
+            aria-live="polite"
+            hidden>
+          </p>
+
+
+          <!-- ACTIONS -->
+          <div id="actions">
+
+            <button
+              id="next-button"
+              class="button button--primary"
+              type="submit"
+              hidden>
+              Suivant <span aria-hidden="true">→</span>
+            </button>
+
+          </div>
+
+        </form>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!--
+    ORDRE DE CHARGEMENT
+    config → contrat → API → questionnaire
+  -->
+  <script src="js/config.js"></script>
+  <script src="js/contract.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/survey.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
+</body>
+</html>
